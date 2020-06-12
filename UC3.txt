@@ -17,5 +17,8 @@ import java.lang.*;
         System.out.println("Present");
       else
         System.out.println("Absent");
-
+        
+        e.Calc();
+}
+}
 
