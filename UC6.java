@@ -1,12 +1,14 @@
 import java.lang.*;
-  public class Emp {
+  public class UC6 {
    public static void main(String args[]){
 
      System.out.println("Welcome to Employee wage computation program");
      int a =(int)(Math.random()*2 +1);
      System.out.println(a);
-     if(a==1){
+     if(a==1)
         System.out.println("Present");
+      else
+        System.out.println("Absent");
 
      //Switch case
      int empRatePerHour=20;
@@ -33,10 +35,6 @@ import java.lang.*;
     System.out.println("Monthly wage is " +monthlySalary);
     break;
    }
-}
-   else {
-        System.out.println("Absent");
-   }
- }
+  }
 }
 
