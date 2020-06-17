@@ -1,6 +1,6 @@
 import java.lang.*;
-import java.util.Scanner;
-  public class UC8 {
+import java.util.*;
+  public class UC9 {
    int a;
    int totalWhr=0;
 
@@ -12,7 +12,7 @@ import java.util.Scanner;
         System.out.println("Today Absent");
    }
 
-   public void calcWage(String Company,int empRatePerHr,int workingDays,int empHrs){
+   public UC9(String Company,int empRatePerHr,int workingDays,int empHrs){
     totalWhr=empHrs*empRatePerHr;
     int monthlySalary=totalWhr*workingDays;
     System.out.println("For company " +Company+ " TotalWorking hr is "+totalWhr+" and Salary is " +monthlySalary);
@@ -38,10 +38,19 @@ import java.util.Scanner;
                  break;
             }
 
-       UC8 obj=new UC8();
-       obj.presence();
-       obj.calcWage("D-Mart",20,30,empHrs);
-       obj.calcWage("Reliance",21,28,empHrs);
+      UC9[] obj;
+      obj=new UC9[4];
+      obj[0]=new UC9("Reliance",21,20,empHrs);
+      obj[1]=new UC9("Flipkart",20,23,empHrs);
+      obj[2]=new UC9("Amazon",21,30,empHrs);
+      obj[3]=new UC9("Quest",20,14,empHrs);
+
+
+       //UC8 obj=new UC8();
+       //obj.presence();
+       //obj.calcWage("D-Mart",20,30,empHrs);
+       //obj.calcWage("Reliance",21,28,empHrs);
+
 }
 }
 
