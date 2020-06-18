@@ -80,10 +80,10 @@ public class EmpWage {
             }
       empList.add(new EmpWage(company,empRatePerHr,workingDays,empHrs));//totalWhr,monthlySalary));
       for (EmpWage emp: empList){
-        int totalWhr=(emp.getempHrs()*emp.getempRatePerHr());
-        int monthlySalary=(totalWhr*emp.getworkingDays());
+        int dailyWage=(emp.getempHrs()*emp.getempRatePerHr());
+        int monthlySalary=(dailyWage*emp.getworkingDays());
 
-         System.out.println("For company " +emp.getCompany()+ " TotalWorking hr is "+totalWhr+" and Salary is " +monthlySalary);
+         System.out.println("For company " +emp.getCompany()+ " DailyWage is "+dailyWage+" and Salary is " +monthlySalary);
       }
   }
  }
