@@ -2,7 +2,7 @@ import java.lang.*;
 import java.util.*;
 
 public class EmpWage {
-   int a;
+  
    int totalWhr=0;
    String company;
    int empRatePerHr;
@@ -45,10 +45,17 @@ public class EmpWage {
      this.empHrs=empHrs;
     }
 
+   public int EmpWageCalc(){
+    totalWhr=empHrs*empRatePerHr;
+    int monthlySalary=totalWhr*workingDays;
+    return monthlySalary;
+    //System.out.println("For company " +company+ " TotalWorking hr is "+totalWhr+" and Salary is " +monthlySalary);
+   }
+
    public static void main(String args[]){
 
      int empHrs=0;
-     List<EmpWage> empList=new ArrayList<EmpWage>(); 
+     HashMap<String,Integer> list=new HashMap<>(); 
      System.out.println("Welcome to Employee wage computation program");
      Scanner in = new Scanner(System.in);
 
@@ -78,20 +85,24 @@ public class EmpWage {
         default:System.out.println("Nothing");
                  break;
             }
-      empList.add(new EmpWage(company,empRatePerHr,workingDays,empHrs));//totalWhr,monthlySalary));
-      for (EmpWage emp: empList){
-        int dailyWage=(emp.getempHrs()*emp.getempRatePerHr());
-        int monthlySalary=(dailyWage*emp.getworkingDays());
-         System.out.println("For company " +emp.getCompany()+ " DailyWage is "+dailyWage+" and Salary is " +monthlySalary);
+    EmpWage emp =new EmpWage(company,empRatePerHr,workingDays,empHrs);
+      emp.EmpWageCalc();
+     list.put(company,emp.EmpWageCalc());
+     }
+
+     System.out.println(list);
+
+     System.out.println("Enter the company to be searched");
+      String searchCompany=in.next();
+
+      if(list.containsKey(searchCompany))
+      {
+        System.out.println("Total wage of "+searchCompany+ " is " +list.get(searchCompany));
       }
-  }
-   System.out.println("Enter the company to be searched");
-    String searchcompany=in.next();
-    if(empList.contains(searchcompany)){
-     System.out.println("Company "+searchcompany);
-else{
-System.out.pritnln("Doesnot exist")
-}
- }
+      else
+      {
+       System.out.println("Company doesnt exist");
+      }
+   }
 }
 
