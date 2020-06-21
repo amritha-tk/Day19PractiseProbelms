@@ -2,7 +2,7 @@ import java.lang.*;
 import java.util.*;
 
 public class EmpWage {
-  
+   int a;
    int totalWhr=0;
    String company;
    int empRatePerHr;
@@ -24,14 +24,14 @@ public class EmpWage {
    public int getempRatePerHr(){
     return empRatePerHr;
    }
-   public int getworkingDays(){
+   public int workingDays(){
     return workingDays;
    }
-   public int getempHrs(){
+   public int empHrs(){
     return empHrs;
-    }
+   }
 
-    //Setmethods
+   //setmethods
    public void setCompany(String company){
      this.company=company;
     }
@@ -44,18 +44,16 @@ public class EmpWage {
     public void setempHrs(int empHrs){
      this.empHrs=empHrs;
     }
-
-   public int EmpWageCalc(){
+     public void EmpWageCalc(){
     totalWhr=empHrs*empRatePerHr;
     int monthlySalary=totalWhr*workingDays;
-    return monthlySalary;
-    //System.out.println("For company " +company+ " TotalWorking hr is "+totalWhr+" and Salary is " +monthlySalary);
+    System.out.println("For company " +company+ " TotalWorking hr is "+totalWhr+" and Salary is " +monthlySalary);
    }
 
+//public class Calculation{
    public static void main(String args[]){
 
      int empHrs=0;
-     HashMap<String,Integer> list=new HashMap<>(); 
      System.out.println("Welcome to Employee wage computation program");
      Scanner in = new Scanner(System.in);
 
@@ -85,24 +83,11 @@ public class EmpWage {
         default:System.out.println("Nothing");
                  break;
             }
-    EmpWage emp =new EmpWage(company,empRatePerHr,workingDays,empHrs);
+
+   EmpWage emp=new EmpWage(company,empRatePerHr,workingDays,empHrs);
       emp.EmpWageCalc();
-     list.put(company,emp.EmpWageCalc());
-     }
-
-     System.out.println(list);
-
-     System.out.println("Enter the company to be searched");
-      String searchCompany=in.next();
-
-      if(list.containsKey(searchCompany))
-      {
-        System.out.println("Total wage of "+searchCompany+ " is " +list.get(searchCompany));
-      }
-      else
-      {
-       System.out.println("Company doesnt exist");
-      }
-   }
+  }
+ }
 }
+
 
